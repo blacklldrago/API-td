@@ -73,26 +73,39 @@ form.onsubmit =(event) =>{
     form.reset()
 }
 /////////////////EDIT
+
 let openModal = async function(id){
-    modal.style.display='block'
     try {
-        form2.onsubmit = async(e)=>{
-            e.preventDefault()
-            let {date} = await axios.put(`https://63d14a1e3f08e4a8ff94b1a5.mockapi.io/documents/${id}`, {
-                type_document:e.target["type"].value,
-                description:e.target["description"].value,
-                status:e.target["status"].value
-           
-            })
-            getData()
+        modal.style.display='block'
+        let {data} = await axios.get(`https://63d14a1e3f08e4a8ff94b1a5.mockapi.io/documents/${id}`)
+        form2["type"].value = data["type_document"]
+        form2["description"].value = data["description"]
+        form2["status"].value = data["status"]
+        form2.onsubmit = (e)=>{
+            e.preventDefault();
+            let myUser = {
+                'type_document':e.target["type"].value,
+                'description':e.target["description"].value,
+                'status':e.target["status"].value
+            }
+            change(id, myUser)
             modal.style.display='none'
-            form2.reset()
         }
-    }
+    }   
     catch (error) {
         console.log(error);
     }
-}   
+}
+let change = async function(id, myUser){
+    try {
+        let {data} = await axios.put(`https://63d14a1e3f08e4a8ff94b1a5.mockapi.io/documents/${id}`, myUser)
+        getData();
+
+    }
+    catch (error) {
+        console.log(error);    
+    }
+}
 
 function getUser(ar){
     let table = document.querySelector("table")
