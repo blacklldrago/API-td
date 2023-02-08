@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <form class="lal">
+        <label for="type">
+            <input type="text" name="type" id="" placeholder="type">
+        </label>
+        <label for="description">
+            <input type="text" name="description" id="" placeholder="description">
+        </label>
+        <label for="status">
+            <input type="text" name="status" id="" placeholder="status">
+        </label>
+        <button class="lalS">Submit</button>
+    </form>
+    <div class="st">
+
+        <table style="border-collapse: collapse;">
+        </table>
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <form class="form2">
+                <h1 class="headForm2">Changing</h1>
+                <input type="text" name="type" id="" placeholder="Type"><br>
+                <input type="text" name="description" id="" placeholder="description"><br>
+                <input type="text" name="status" id="" placeholder="status"><br>
+                <button class="submit">Submit</button>
+            </form>
+            <span class="close">&times;</span>
+        </div>
+    </div>
+    <div class="modal1">
+        <div class="modal-content1">
+            <button class="yes">YES</button>
+            <button class="no">NO</button>
+        </div>    
+        <span class="close2">&times;</span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
