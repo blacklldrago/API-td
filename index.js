@@ -58,7 +58,7 @@ let addNew = async function(editUser){
         getData()   
     }
     catch (error) {
-        
+        console.log(error);
     }
 }
 form.onsubmit =(event) =>{
